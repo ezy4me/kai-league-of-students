@@ -1,0 +1,138 @@
+/* Обнуляем отступы и отступы от краев для всех элементов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Учитываем padding и border в размере элемента */
+}
+
+/* Обнуляем стандартные значения для некоторых элементов */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+code,
+em,
+img,
+small,
+strong,
+sub,
+sup,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+footer,
+header,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* Устанавливаем базовый шрифт и размер */
+body {
+    line-height: 1;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Удаляем стили у списков */
+ol,
+ul {
+    list-style: none;
+}
+
+/* Удаляем стили у ссылок */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Обнуляем стандартные отступы у таблиц и ячеек таблицы */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Удаляем стили у элементов формы */
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+}
+
+/* Правим стили у элементов веб-компонентов, которые наследуют стили от документа */
+/* Это пример. В зависимости от проекта могут быть другие элементы, которые требуют сброса стилей */
+progress,
+meter,
+details {
+    display: block;
+}
+
+/* Сбрасываем стили для встроенных медиа-элементов */
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+/* Сбрасываем стандартные стили у списков определений */
+dl {
+    display: grid;
+}
+
+/* Убираем сбросы отступов у групп изображений */
+figure {
+    margin: 0;
+}
+
+/* Убираем сбросы отступов у меток */
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Нормализуем HTML5-элементы с открывающим и закрывающим тегами */
+details,
+main,
+menu,
+nav {
+    display: block;
+}
+
+/* Корректируем отступы у блоков */
+div,
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}

@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+$font-family: 'Montserrat', sans-serif;
+$line-height: 1.5;
+$font-weight: 400;
+
+:root {
+  font-family: $font-family;
+  line-height: $line-height;
+  font-weight: $font-weight;
+  letter-spacing: 1px;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+
+}
+
+@mixin flex-container($direction: row, $justify-content: flex-start, $align-items: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin flex-item($flex-grow: 0, $flex-shrink: 1, $flex-basis: auto) {
+    flex-grow: $flex-grow;
+    flex-shrink: $flex-shrink;
+    flex-basis: $flex-basis;
+}
