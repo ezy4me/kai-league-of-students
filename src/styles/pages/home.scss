@@ -60,7 +60,7 @@
             width: 50%;
             @include flex-container(column, space-between, center);
             gap: 2rem;
-            border: 2px solid white;
+            border: 2px solid #ececec;
             padding: 2rem;
         }
     }
@@ -116,7 +116,7 @@
                 text-align: center;
 
                 &:nth-child(2) {
-                    border-left: 2px solid white;
+                    border-left: 2px solid #ececec;
                 }
             }
         }

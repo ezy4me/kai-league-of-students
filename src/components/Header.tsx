@@ -37,9 +37,9 @@ const Header = () => {
           </ul>
         </nav>
 
-        <a className="link" href="#">
+        <Link className="link" to={"/login"}>
           Личный кабинет
-        </a>
+        </Link>
       </div>
     </header>
   );
