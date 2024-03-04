@@ -1,8 +1,6 @@
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 
 const RegistrationForm = () => {
@@ -18,16 +16,13 @@ const RegistrationForm = () => {
   return (
     <Box
       sx={{
-        width: '100%',
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         gap: 4,
         bgcolor: "#121212",
       }}>
-      <Avatar sx={{ m: 1, bgcolor: "primary.main", width: 128, height: 128 }}>
-        <LockOutlinedIcon style={{ width: 64, height: 64 }} />
-      </Avatar>
       <Typography component="h1" variant="h4">
         Регистрация аккаунта
       </Typography>

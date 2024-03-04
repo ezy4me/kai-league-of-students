@@ -3,7 +3,8 @@ import Grid from "@mui/material/Unstable_Grid2";
 import LoginForm from "@/components/Auth/LoginForm";
 import RegistrationForm from "@/components/Auth/RegistrationForm";
 import { useState } from "react";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function AuthPage() {
   const [isLoginForm, setIsLoginForm] = useState<boolean>(true);
@@ -13,7 +14,7 @@ export default function AuthPage() {
   };
 
   return (
-    <Grid container component="div" sx={{ height: "calc(100vh - 70px)" }}>
+    <Grid container component="div" sx={{ height: "100vh" }}>
       <Grid
         xs={false}
         sm={4}
@@ -29,7 +30,7 @@ export default function AuthPage() {
       <Grid xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <Box
           sx={{
-            height: '100%',
+            height: "100%",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -37,6 +38,11 @@ export default function AuthPage() {
             gap: 4,
             bgcolor: "#121212",
           }}>
+          <Stack direction={"row"} alignItems={"center"} spacing={1}>
+            <Link to={"/"}>
+              <img alt="header_logo" src="/public/images/logo.png" />
+            </Link>
+          </Stack>
           {isLoginForm ? <LoginForm /> : <RegistrationForm />}
           <Button onClick={switchCurrentForm}>
             {isLoginForm ? "Регистрация" : "Авторизация"}
