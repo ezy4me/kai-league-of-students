@@ -19,6 +19,8 @@ import AuthPage from "@pages/Auth/AuthPage";
 import AccountPage from "@pages/Account/AccountPage";
 import MainPage from "@pages/Account/MainPage";
 import ProfilePage from "@pages/Account/ProfilePage";
+import TeamPage from "@pages/Account/TeamPage";
+import ApplicationPage from "@pages/Account/ApplicationPage";
 
 import NotFoundPage from "@pages/Landing/NotFoundPage";
 
@@ -40,6 +42,8 @@ const router = createBrowserRouter(
         <Route path="/account" element={<AccountPage />}>
           <Route index element={<MainPage />} />
           <Route path="/account/profile" element={<ProfilePage />} />
+          <Route path="/account/team" element={<TeamPage />} />
+          <Route path="/account/application" element={<ApplicationPage />} />
         </Route>
       </Route>
 
