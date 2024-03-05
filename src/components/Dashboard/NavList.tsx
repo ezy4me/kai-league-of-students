@@ -3,6 +3,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Link } from "react-router-dom";
 
@@ -16,6 +17,7 @@ const MainNavLinks = () => {
   return (
     <>
       <NavLink to="/account/" icon={<DashboardIcon />} primary="Главная" />
+      <NavLink to="/account/profile" icon={<AccountCircleIcon />} primary="Мой профиль" />
     </>
   );
 };

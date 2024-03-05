@@ -9,16 +9,18 @@ import HomeLayout from "@/layouts/HomeLayout";
 import AuthLayout from "@layouts/AuthLayout";
 import AccountLayout from "@layouts/AccountLayout";
 
-import HomePage from "@pages/HomePage";
-import VenuesPage from "@pages/VenuesPage";
-import ContactsPage from "@pages/ContactsPage";
-import DocumentsPage from "@pages/DocumentsPage";
+import HomePage from "@pages/Landing/HomePage";
+import VenuesPage from "@pages/Landing/VenuesPage";
+import ContactsPage from "@pages/Landing/ContactsPage";
+import DocumentsPage from "@pages/Landing/DocumentsPage";
 
-import AuthPage from "@pages/AuthPage";
+import AuthPage from "@pages/Auth/AuthPage";
 
-import AccountPage from "@pages/AccountPage";
+import AccountPage from "@pages/Account/AccountPage";
+import MainPage from "@pages/Account/MainPage";
+import ProfilePage from "@pages/Account/ProfilePage";
 
-import NotFoundPage from "@pages/NotFoundPage";
+import NotFoundPage from "@pages/Landing/NotFoundPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,7 +37,10 @@ const router = createBrowserRouter(
       </Route>
 
       <Route element={<AccountLayout />}>
-        <Route path="/account" element={<AccountPage />} />
+        <Route path="/account" element={<AccountPage />}>
+          <Route index element={<MainPage />} />
+          <Route path="/account/profile" element={<ProfilePage />} />
+        </Route>
       </Route>
 
       <Route path="/*" element={<NotFoundPage />} />

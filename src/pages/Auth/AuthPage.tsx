@@ -40,7 +40,7 @@ export default function AuthPage() {
           }}>
           <Stack direction={"row"} alignItems={"center"} spacing={1}>
             <Link to={"/"}>
-              <img alt="header_logo" src="/public/images/logo.png" />
+              <img alt="ЛИГА СТУДЕНТОВ" src="/public/images/logo.png" />
             </Link>
           </Stack>
           {isLoginForm ? <LoginForm /> : <RegistrationForm />}

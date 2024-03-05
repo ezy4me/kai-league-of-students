@@ -98,7 +98,7 @@ const HomePage = () => {
       <section>
         <div className="container home-page__container">
           <div className="home-page__sponsors">
-            <h1>Наши спонсоры</h1>
+            <h1>Наши партнеры</h1>
             <div className="sponsors__list">
               <div className="sponsors__list">
                 <div className="sponsors__item">

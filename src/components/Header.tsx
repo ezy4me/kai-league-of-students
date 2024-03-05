@@ -5,7 +5,9 @@ const Header = () => {
     <header className="header">
       <div className="container header__container">
         <div className="logo">
-          <img src="/public/images/logo.png" alt="Лига студентов" />
+          <Link to={"/"}>
+            <img alt="header_logo" src="/public/images/logo.png" />
+          </Link>
         </div>
         <nav className="header__nav">
           <ul className="header__nav-list">
@@ -19,11 +21,11 @@ const Header = () => {
                 Площадки
               </Link>
             </li>
-            {/* <li className="header__nav-item">
-              < className="logo">
+            <li className="header__nav-item">
+              <div className="logo">
                 <img src="/public/images/cat.png" alt="Лига студентов" />
-              </>
-            </li> */}
+              </div>
+            </li>
             <li className="header__nav-item">
               <Link className="link" to={"/contacts"}>
                 Контакты
