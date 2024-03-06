@@ -1,51 +1,40 @@
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Divider,
-  Typography,
-} from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
+import { Button, Card, CardActions, CardContent, CardMedia, Divider, Typography } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import useTeamStore from '@/store/teamStore';
 
-const TeamCard = () => {
+interface TeamCardProps {
+  team: any;
+}
+
+const TeamCard = ({ team }: TeamCardProps) => {
+  const url = import.meta.env.VITE_PUBLIC_URL
+
+  const { deleteUserTeam } = useTeamStore((state) => ({
+    deleteUserTeam: state.deleteUserTeam,
+  }));
+
+  const onDelete = async (teamId: number) => {
+    await deleteUserTeam(teamId);
+  };
+
   return (
     <Card>
-      <CardMedia
-        component="img"
-        height="200"
-        image="/public/images/account/main-1.png"
-        alt="img"
-      />
+      <CardMedia component="img" height="200" image={url + team.teamAvatar} alt="img" />
       <CardContent>
         <Typography my={1} variant="h5" component="div">
-          "Орлы сибири"
+          {team.teamName}
         </Typography>
         <Divider />
-        <Typography my={1} variant="body2" color="text.secondary">
-          1. Иванов Иван Иванович
-        </Typography>
+        {team.participant_teams.map((i: any, index: number) => (
+          <Typography key={i.id} my={1} variant="body2" color="text.secondary">
+            {index+1}. {i.participant.participantName}
+          </Typography>
+        ))}
         <Divider />
-        <Typography my={1} variant="body2" color="text.secondary">
-          2. Иванов Иван Иванович
-        </Typography>
-        <Divider />
-        <Typography my={1} variant="body2" color="text.secondary">
-          3. Иванов Иван Иванович
-        </Typography>
-        <Divider />
-        <Typography my={1} variant="body2" color="text.secondary">
-          4. Иванов Иван Иванович
-        </Typography>
       </CardContent>
       <Divider />
       <CardActions>
-        <Button
-          fullWidth
-          variant="contained"
-          color="error"
-          endIcon={<DeleteIcon />}>
+        <Button onClick={() => onDelete(team.id)} fullWidth variant="contained" color="error" endIcon={<DeleteIcon />}>
           Удалить
         </Button>
       </CardActions>

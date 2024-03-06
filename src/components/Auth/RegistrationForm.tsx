@@ -2,15 +2,37 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import useAuthStore from "@/store/authStore";
+import { ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RegistrationForm = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const { onRegistration, error } = useAuthStore((state) => ({
+    onRegistration: state.onRegistration,
+    error: state.error,
+  }));
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await onRegistration({
+      userEmail: email,
+      userPassword: password,
+    }).then((res) => {
+      if (res?.status === 200) navigate("/account");
     });
+  };
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
   };
 
   return (
@@ -25,6 +47,9 @@ const RegistrationForm = () => {
       }}>
       <Typography component="h1" variant="h4">
         Регистрация аккаунта
+      </Typography>
+      <Typography color={'red'} component="p" variant="body1">
+        {error && error.message}
       </Typography>
       <Box
         component="form"
@@ -45,6 +70,7 @@ const RegistrationForm = () => {
           id="email"
           label="Почта"
           name="email"
+          onChange={handleEmailChange}
         />
         <TextField
           variant="outlined"
@@ -55,6 +81,7 @@ const RegistrationForm = () => {
           label="Пароль"
           type="password"
           id="password"
+          onChange={handlePasswordChange}
         />
         <Button
           type="submit"
